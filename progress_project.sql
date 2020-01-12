@@ -137,6 +137,19 @@ ORDER by Members.surname
 */
 
 /* Query for number 8:
+SELECT Bookings.bookid, Bookings.facid, Bookings.memid, Bookings.slots, Bookings.starttime, Facilities.guestcost, Facilities.membercost, Facilities.name  FROM `Bookings` JOIN Facilities
+ON Bookings.facid = Facilities.facid
+WHERE starttime LIKE '2012-09-14%'
+AND (Facilities.guestcost >= 30 OR Facilities.membercost >= 30) */
 
 
+/*  Query for number 9:
+SELECT * 
+FROM Bookings
+WHERE starttime = '2012-09-14%'
+JOIN (     
+SELECT guestcost, membercost, name
+FROM Facilities
+WHERE guestcost >= 30 or membercost >=30 )
+ON Bookings.facid = Facilities.facid */
 
